@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lim Pakrinha | M.Sc. AI Researcher & Full-Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    @media print {
+      body { background: #ffffff !important; color: #000000 !important; }
+      .no-print { display: none !important; }
+      #portfolio-view { display: none !important; }
+      #cv-view { display: block !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; max-width: 100% !important; }
+      @page { size: A4; margin: 12mm; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-emerald-500 selection:text-white">
+
+  <!-- Top Navigation & Mode Switcher -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/85 border-b border-slate-800 no-print">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="h-3 w-3 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-bold tracking-tight text-lg">LIM PAKRINHA</span>
+        <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mono">SIIT Thammasat M.Sc.</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="switchMode('portfolio')" id="btn-portfolio" class="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-emerald-500 text-slate-950 transition">
+          🌐 Web Portfolio
+        </button>
+        <button onclick="switchMode('cv')" id="btn-cv" class="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+          📄 Printable CV (A4)
+        </button>
+        <button onclick="printCV()" class="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-indigo-600 hover:bg-indigo-500 text-white transition">
+          🖨️ Print / Save PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 1. INTERACTIVE WEB PORTFOLIO VIEW ==================== -->
+  <main id="portfolio-view" class="max-w-6xl mx-auto px-4 py-12 space-y-20">
+
+    <!-- Hero Section -->
+    <section class="grid md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-4 flex flex-col items-center md:items-start">
+        <!-- Replace src="profile.jpg" with your headshot file in your repository -->
+        <div class="w-44 h-44 rounded-full border-4 border-emerald-500/40 bg-slate-800 overflow-hidden shadow-2xl flex items-center justify-center relative">
+          <img src="profile.jpg" alt="Lim Pakrinha" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full h-full object-cover" />
+          <div class="hidden w-full h-full items-center justify-center bg-gradient-to-br from-emerald-700 to-slate-900 text-4xl font-extrabold text-white">
+            LP
+          </div>
+        </div>
+        <div class="mt-4 text-center md:text-left">
+          <p class="text-xs uppercase tracking-widest text-emerald-400 mono">Pathum Thani, Thailand</p>
+          <p class="text-sm text-slate-400 mt-1">SIIT International Residence Halls</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-8 space-y-5">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-slate-300">
+          <span>🎓 EFS Scholar @ SIIT, Thammasat University</span>
+          <span>•</span>
+          <span>🏅 1st Class Honors (3.80 GPA)</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+          Bridging <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Full-Stack Engineering</span> &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Industrial AI Research</span>
+        </h1>
+        <p class="text-slate-300 text-lg leading-relaxed">
+          Versatile Full-Stack Developer with a strong track record of delivering web and mobile applications using (<span class="mono text-emerald-300">Vue 3, Flutter, and automated CI/CD pipelines</span>), now augmented by graduate-level specialization in Artificial Intelligence at SIIT, Thammasat University. Passionate about building reliable, end-to-end software architectures and integrating intelligent machine learning pipelines into modern enterprise products.
+        </p>
+        <blockquote class="border-l-2 border-emerald-500 pl-4 italic text-slate-400 text-sm">
+          "Evolving from a full-stack engineer into an AI researcher—driven by a passion for continuous learning and the confidence to solve complex industrial challenges."
+        </blockquote>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="mailto:pakrinha123lim@gmail.com" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm transition">
+            ✉️ pakrinha123lim@gmail.com
+          </a>
+          <a href="tel:+66959212941" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-medium text-sm transition">
+            📞 +66 959212941
+          </a>
+          <button onclick="switchMode('cv')" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-emerald-400 font-medium text-sm transition">
+            📄 View Full CV →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Scholarships -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold tracking-tight flex items-center gap-2">
+        <span class="text-emerald-400">01.</span> Academic Background &amp; Scholarships
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-emerald-500/40 transition">
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <span class="text-xs mono text-emerald-400 uppercase">Class of 2024 – Now</span>
+              <h3 class="text-xl font-bold mt-1">Thammasat University (SIIT), Thailand</h3>
+              <p class="text-sm text-slate-300 mt-0.5">Sirindhorn International Institute of Technology</p>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-300 text-xs font-semibold">M.Sc.</span>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
+            <li><strong>Degree:</strong> M.Sc. in Engineering and Technology (Management Technology)</li>
+            <li><strong>Scholarship:</strong> Received <em>Excellence Foreign Student (EFS)</em> Scholarship</li>
+            <li><strong>Research:</strong> Heterogeneous GNNs (HAN/HGT), Reinforcement Learning, &amp; IBM ILOG CPLEX Constraint Programming for 40-machine Multilayer PCB Flexible Job Shop Scheduling</li>
+          </ul>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/40 transition">
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <span class="text-xs mono text-indigo-400 uppercase">Class of 2017 – 2021</span>
+              <h3 class="text-xl font-bold mt-1">University of Phayao, Thailand</h3>
+              <p class="text-sm text-slate-300 mt-0.5">Bachelor of Science: Information Technology</p>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-300 text-xs font-semibold">GPA 3.80 / 4.0</span>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
+            <li><strong>Honors:</strong> 1st Class Honor Student (GPA 3.80 / 4.00)</li>
+            <li><strong>Scholarship:</strong> Received <em>Royal Scholarship under Her Royal Highness Princess Maha Chakri Sirindhorn Education Project</em> to the Kingdom of Cambodia</li>
+            <li><strong>Accomplishments:</strong> Participated in University Project Day</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience & Research -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold tracking-tight flex items-center gap-2">
+        <span class="text-emerald-400">02.</span> Work Experience &amp; Research Projects
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs mono text-emerald-400">2024 – Present • Research</span>
+            <h3 class="text-lg font-bold mt-1">Graduate AI &amp; OR Researcher</h3>
+            <p class="text-xs text-slate-400 mb-3">SIIT, Thammasat University</p>
+            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
+              <li>Modeled 40-machine multilayer PCB batch scheduling using Heterogeneous Graph Attention Networks (HAN) &amp; HGT.</li>
+              <li>Formulated Constraint Programming models in IBM ILOG CPLEX (<code class="mono text-xs">cp.noOverlap</code>, <code class="mono text-xs">cp.span</code>).</li>
+              <li>Built PyTorch multi-modal time-series tokenization for electricity load forecasting.</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-1.5">
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-emerald-300 mono">PyTorch</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-emerald-300 mono">HGNN / RL</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-emerald-300 mono">IBM CPLEX</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs mono text-cyan-400">2021 – 2023 • Full-Time</span>
+            <h3 class="text-lg font-bold mt-1">Full Stack Developer</h3>
+            <p class="text-xs text-slate-400 mb-3">iMake Development Co., Ltd</p>
+            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
+              <li>Reviewed code, debugged problems, and corrected software issues across production platforms.</li>
+              <li>Oversaw and implemented automated build and deployment (CI/CD) pipelines.</li>
+              <li>Worked closely with back-end developers to design and integrate scalable APIs.</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-1.5">
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-cyan-300 mono">Vue 3</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-cyan-300 mono">Flutter</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-cyan-300 mono">CI/CD</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-cyan-300 mono">API Design</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs mono text-purple-400">2019 – 2020 • Developer</span>
+            <h3 class="text-lg font-bold mt-1">Web Developer</h3>
+            <p class="text-xs text-slate-400 mb-3">MulburrySoft</p>
+            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
+              <li>Applied effective time management techniques to consistently meet tight client deadlines.</li>
+              <li>Learned and adapted quickly to new web technologies and software applications.</li>
+              <li>Contributed to responsive web-based software engineering projects.</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-1.5">
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-purple-300 mono">JavaScript</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-purple-300 mono">Web Engineering</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-purple-300 mono">Agile</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Languages Matrix -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold tracking-tight flex items-center gap-2">
+        <span class="text-emerald-400">03.</span> Skills, Abilities &amp; Languages
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+          <h3 class="font-bold text-emerald-400 mb-3">AI, Deep Learning &amp; OR</h3>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Neural Networks</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Heterogeneous GNNs (HAN/HGT)</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Reinforcement Learning</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Object Detection</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Anomaly Detection</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Image Processing</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">PyTorch &amp; CUDA</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">IBM ILOG CPLEX</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+          <h3 class="font-bold text-cyan-400 mb-3">Software &amp; Application Dev</h3>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <span class="px-3 py-1 rounded-lg bg-slate-800">JavaScript (Vue 3)</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Flutter Mobile App</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Web-based Software Engineering</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">API Design Knowledge</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Application Development</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Project Management</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-800">Automated CI/CD</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3">
+          <h3 class="font-bold text-indigo-400 mb-3">Languages &amp; Contact</h3>
+          <div class="text-sm space-y-1.5">
+            <p>🇰🇭 <strong>Khmer:</strong> Native</p>
+            <p>🇬🇧 <strong>English:</strong> Professional Working &amp; Academic</p>
+            <p>🇹🇭 <strong>Thai:</strong> Conversational &amp; Academic</p>
+          </div>
+          <div class="pt-3 border-t border-slate-800 text-xs text-slate-400 space-y-1">
+            <p><strong>Address:</strong> SIIT International Residence Halls, 200 Moo 5 Thanon Tiwanon Bang Kadi, Mueang Pathum Thani District, Pathum Thani 12000</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 2. PRINTABLE A4 CV VIEW ==================== -->
+  <section id="cv-view" class="hidden max-w-4xl mx-auto my-8 bg-white text-slate-900 p-8 sm:p-12 rounded-xl shadow-2xl">
+    <!-- CV Header -->
+    <div class="border-b-2 border-slate-800 pb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight uppercase text-slate-900">LIM PAKRINHA</h1>
+        <p class="text-sm font-semibold text-emerald-700 uppercase tracking-wider mt-0.5">
+          Graduate Researcher (M.Sc. Engineering &amp; Technology) | Full-Stack Developer
+        </p>
+        <p class="text-xs text-slate-600 mt-2 max-w-xl">
+          📍 SIIT International Residence Halls, 200 Moo 5 Thanon Tiwanon Bang Kadi, Mueang Pathum Thani District, Pathum Thani 12000, Thailand
+        </p>
+      </div>
+      <div class="text-xs sm:text-right space-y-1 text-slate-700 font-medium">
+        <p>📞 +66 959212941</p>
+        <p>✉️ pakrinha123lim@gmail.com</p>
+        <p>🌐 pakrinha.github.io</p>
+      </div>
+    </div>
+
+    <!-- Main Objective -->
+    <div class="mt-5">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 border-b border-slate-200 pb-1">Main Objective &amp; Profile</h2>
+      <p class="text-xs leading-relaxed text-slate-800 mt-2">
+        Versatile Full-Stack Developer with a strong track record of delivering web and mobile applications using Vue 3, Flutter, and automated CI/CD pipelines, now augmented by graduate-level specialization in Artificial Intelligence at SIIT, Thammasat University. Passionate about building reliable, end-to-end software architectures and integrating intelligent machine learning pipelines into modern enterprise products.
+      </p>
+    </div>
+
+    <!-- Academic Background -->
+    <div class="mt-5">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 border-b border-slate-200 pb-1">Academic Background</h2>
+      <div class="mt-2.5 space-y-3 text-xs">
+        <div>
+          <div class="flex justify-between font-bold text-slate-900">
+            <span>Thammasat University — Sirindhorn International Institute of Technology (SIIT) (Thailand)</span>
+            <span>Class of 2024 – Present</span>
+          </div>
+          <p class="italic text-slate-700">M.Sc. in Engineering and Technology (Management Technology)</p>
+          <ul class="list-disc list-inside text-slate-700 mt-1 space-y-0.5">
+            <li>Received <strong>Excellence Foreign Student (EFS)</strong> Full Scholarship.</li>
+            <li>Research Focus: Heterogeneous Graph Neural Networks (HAN/HGT), Reinforcement Learning, and IBM ILOG CPLEX Constraint Programming applied to Flexible Job Shop Scheduling in multilayer PCB manufacturing.</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="flex justify-between font-bold text-slate-900">
+            <span>University of Phayao (Thailand)</span>
+            <span>Class of 2017 – 2021</span>
+          </div>
+          <p class="italic text-slate-700">Bachelor of Science in Information Technology | 1st Honor Student</p>
+          <ul class="list-disc list-inside text-slate-700 mt-1 space-y-0.5">
+            <li>Graduated with <strong>1st Class Honors, GPA 3.80 / 4.00</strong>; Participated in University Project Day.</li>
+            <li>Received <strong>Royal Scholarship under Her Royal Highness Princess Maha Chakri Sirindhorn Education Project</strong> to the Kingdom of Cambodia.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="mt-5">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 border-b border-slate-200 pb-1">Work Experience</h2>
+      <div class="mt-2.5 space-y-3 text-xs">
+        <div>
+          <div class="flex justify-between font-bold text-slate-900">
+            <span>Full Stack Developer — iMake Development Co., Ltd</span>
+            <span>2021 – 2023</span>
+          </div>
+          <ul class="list-disc list-inside text-slate-700 mt-1 space-y-0.5">
+            <li>Reviewed code, debugged complex application problems, and corrected production issues.</li>
+            <li>Oversaw and implemented automated build and deployment (CI/CD) pipelines.</li>
+            <li>Worked collaboratively with back-end developers to design and integrate scalable APIs.</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="flex justify-between font-bold text-slate-900">
+            <span>Web Developer — MulburrySoft</span>
+            <span>2019 – 2020</span>
+          </div>
+          <ul class="list-disc list-inside text-slate-700 mt-1 space-y-0.5">
+            <li>Applied effective time management and project management techniques to meet tight deadlines.</li>
+            <li>Learned and adapted quickly to new web technologies and software applications.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Graduate Research Projects -->
+    <div class="mt-5">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 border-b border-slate-200 pb-1">Selected Research &amp; Technical Projects</h2>
+      <div class="mt-2 space-y-2 text-xs text-slate-700">
+        <p><strong>• Heterogeneous GNNs for Multilayer PCB Job Shop Scheduling (2026):</strong> Designed HAN and HGT message-passing architectures for 40-machine batch production scheduling and exported graph topologies to Gephi.</p>
+        <p><strong>• Mathematical Scheduling via Constraint Programming (2026):</strong> Modeled operational scheduling constraints using IBM ILOG CPLEX Optimization Studio (OPL, <code class="mono">cp.span</code>, <code class="mono">cp.cumulFunctionExpr</code>, <code class="mono">cp.noOverlap</code>).</p>
+        <p><strong>• Multi-Modal Time-Series Electricity Load Forecasting (2025):</strong> Implemented PyTorch tensor tokenization integrating datetime, weather metrics, and power generation variables.</p>
+      </div>
+    </div>
+
+    <!-- Skills, Accomplishments & Languages -->
+    <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+      <div>
+        <h2 class="font-bold uppercase tracking-widest text-slate-500 border-b border-slate-200 pb-1">Skills &amp; Abilities</h2>
+        <ul class="mt-2 space-y-1 text-slate-800">
+          <li><strong>AI &amp; Data Science:</strong> Neural Networks, Heterogeneous GNNs, Reinforcement Learning, Object Detection, Anomaly Detection, Image Processing, PyTorch, IBM CPLEX.</li>
+          <li><strong>Software Engineering:</strong> JavaScript (Vue 3), Flutter Mobile Application, Web-based Software Engineering, API Design, Application Development, CI/CD, Project Management.</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-bold uppercase tracking-widest text-slate-500 border-b border-slate-200 pb-1">Accomplishments &amp; Languages</h2>
+        <ul class="mt-2 space-y-1 text-slate-800">
+          <li><strong>Scholarships:</strong> SIIT Excellence Foreign Student (EFS) &amp; HRH Princess Maha Chakri Sirindhorn Royal Scholarship.</li>
+          <li><strong>Academic Honors:</strong> 3.80 / 4.00 B.Sc. GPA (1st Class Honors) &amp; Project Day Participant.</li>
+          <li><strong>Languages:</strong> Khmer (Native), English (Fluent), Thai (Conversational).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function switchMode(mode) {
+      const portfolio = document.getElementById('portfolio-view');
+      const cv = document.getElementById('cv-view');
+      const btnP = document.getElementById('btn-portfolio');
+      const btnC = document.getElementById('btn-cv');
+
+      if (mode === 'cv') {
+        portfolio.classList.add('hidden');
+        cv.classList.remove('hidden');
+        btnC.className = 'px-3.5 py-1.5 rounded-lg text-sm font-medium bg-emerald-500 text-slate-950 transition';
+        btnP.className = 'px-3.5 py-1.5 rounded-lg text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition';
+      } else {
+        cv.classList.add('hidden');
+        portfolio.classList.remove('hidden');
+        btnP.className = 'px-3.5 py-1.5 rounded-lg text-sm font-medium bg-emerald-500 text-slate-950 transition';
+        btnC.className = 'px-3.5 py-1.5 rounded-lg text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition';
+      }
+    }
+
+    function printCV() {
+      switchMode('cv');
+      setTimeout(() => window.print(), 150);
+    }
+  </script>
+</body>
+</html>
